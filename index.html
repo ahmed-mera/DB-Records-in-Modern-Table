@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Mange Table</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
+  <!-- my css -->
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <!-- create table      -->
+      <div class="modal modelTable fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+           aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold">Create Table</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body mx-3">
+                      <div class="md-form mb-5">
+                          <input type="number" id="form3" class="form-control validate" min = "1" max = "100" required>
+                          <label data-error="wrong" data-success="right" for="form3">Rows</label>
+                      </div>
+
+                      <div class="md-form mb-4">
+                          <input type="number" id="form2" class="form-control validate" min = "2" max = "10" required>
+                          <label data-error="wrong" data-success="right" for="form2" >Columns</label>
+                      </div>
+
+                  </div>
+                  <div class="modal-footer d-flex justify-content-center">
+                      <button class="btn btn-indigo createTable">Send </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="text-center">
+          <button class="btn btn-default btn-rounded mb-4 openModelTable" data-toggle="modal" data-target="#modalSubscriptionForm">
+              Create table
+          </button>
+      </div>
+
+    <div class="modal fade" id="nameOfRows" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Headers</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-indigo informationRow">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="valueOfRows" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Information Row</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-indigo valuesRow">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper-editor d-none">
+
+      <div class="block my-4">
+        <div class="d-flex justify-content-center">
+          <p class="h5 text-primary createShowP"> <span id="rowSelected">0</span> row selected</p>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center modalWrapper">
+
+        <!-- start container add form -->
+        <div class="modal fade addNewInputs" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalAdd"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold text-primary ml-5">Add new form</h4>
+                <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- form add -->
+              <div class="modal-body mx-3 formAdd">
+
+                <div class="md-form mb-5">
+                  <input type="text" id="inputName" class="form-control validate">
+                  <label data-error="wrong" data-success="right" for="inputName">Name</label>
+                </div>
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
+                <button class="btn btn-outline-primary btn-block buttonAdd" data-dismiss="modal">Add form
+                  <i class="fas fa-paper-plane-o ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-info btn-rounded btn-sm add" data-toggle="modal" data-target="#modalAdd">Add
+            <i class="fas fa-plus-square ml-1"></i></button>
+        </div>
+        <!-- end container add form -->
+
+        <!-- start container edit form -->
+        <div class="modal fade modalEditClass" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit form</h4>
+                <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- edit form -->
+              <div class="modal-body mx-3 formEdit">
+
+                <div class="md-form mb-5">
+                  <input type="text" id="formNameEdit" class="form-control validate">
+                  <label data-error="wrong" data-success="right" for="formNameEdit">Name</label>
+                </div>
+
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Edit Form
+                  <i class="fas fa-paper-plane-o ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end container edit form -->
+
+        <div class="text-center buttonEditWrapper">
+          <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit"
+                  disabled>Edit<i class="fas fa-pencil-square-o ml-1"></i></button>
+        </div>
+
+        <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDelete"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold ml-5 text-danger ">Delete</h4>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <!-- start model yes or no -->
+              <div class="modal-body mx-3">
+                <p class="text-center h4">Are you sure to delete selected row?</p>
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center deleteButtonsWrapper">
+                <button type="button" class="btn btn-danger btnYesClass" id="btnYes" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-primary btnNoClass" id="btnNo" data-dismiss="modal">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end model -->
+
+        <div class="text-center">
+          <button class="btn btn-danger btn-sm btn-rounded buttonDelete" data-toggle="modal" disabled
+                  data-target="#modalDelete" disabled>Delete<i class="fas fa-times ml-1"></i></button>
+        </div>
+      </div>
+
+        <div class="my-table"> </div>
+
+    </div>
+  </div>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+  <!-- my script -->
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

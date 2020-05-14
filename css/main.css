@@ -1,0 +1,19 @@
+
+.tr-color-selected {
+  background-color: rgba(52,181,229,.3)!important;
+  transition: all .2s ease-in;
+}
+
+table > tbody tr:hover{
+  cursor: pointer;
+  background-color: rgba(52,181,229,.3)!important;
+  transition: all .3s linear;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  -ms-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+}
+.modal.fade.show {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
