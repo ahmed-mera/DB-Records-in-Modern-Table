@@ -29,5 +29,9 @@ class row {
         return $data;
     }
 
+    public function  addNewCeil ($data, $id) {
+        return "<td data-id= '{$id}' > {$data}</td>";
+    }
+
 }
 
