@@ -5,7 +5,7 @@ namespace table;
 
 class row {
 
-    protected function createRow($id, $data){
+    public function create($id, $data){
         if ($id){
             $row = "<tbody> <tr class = 'my-row' onclick='setSelect({$id})' data-id = '{$id}'>";
             foreach ($data as $key => $value){
@@ -24,7 +24,7 @@ class row {
         return $row ;
     }
 
-    protected function deleteCeil($id, $data){
+    public function deleteCeil($id, $data){
         unset($data[$id]);
         return $data;
     }

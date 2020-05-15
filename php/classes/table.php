@@ -17,10 +17,10 @@ class table extends row implements crud
         $table = '<table class="table table-striped table-bordered mt-5" cellspacing="0" width="100%">';
         if(!empty($id)){
             $showRow = $this->data[$id];
-            $table .= parent::createRow($id, $showRow);
+            $table .= parent::create($id, $showRow);
         }else{
             foreach ($data as $kay => $value){
-                $table .= parent::createRow($kay, $value);
+                $table .= parent::create($kay, $value);
             }
         }
         $table .= "</table>";
