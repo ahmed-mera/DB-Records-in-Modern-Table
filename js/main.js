@@ -96,6 +96,7 @@ $('.valuesRow').click(function () {
     $('.openModelTable').attr('data-target', '#valueOfRows').click();
     $('.openModelTable').attr('data-target', dataTaregtOld).click();
     $('.wrapper-editor').removeClass('d-none');
+    $('.openModelTable').addClass('d-none');
     sendData(dataTable);
     close.click();
   }

@@ -14,22 +14,22 @@ class table extends row implements crud
     }
 
     public function create($data, $id){
-        $table = '<table class="table table-striped table-bordered mt-5" cellspacing="0" width="100%">';
-        if(!empty($id)){
-            $showRow = $this->data[$id];
-            $table .= parent::create($id, $showRow);
-        }else{
-            foreach ($data as $kay => $value){
-                $table .= parent::create($kay, $value);
+        $table = '<table id="dtBasicExample" class="table table-striped table-bordered mt-5" cellspacing="0" width="100%">';
+//        if(!empty($id)){
+//            $showRow = $this->data[$id];
+//            $table .= parent::create($showRow, $id);
+//        }else{
+            foreach ($data as $key => $value){
+                $table .= parent::create($value, $key);
             }
-        }
+//        }
         $table .= "</table>";
         return $table;
     }
 
 
     public function read($id = null){
-        return self::create( $this->data, $id);
+        return self::create($this->data, $id);
     }
 
 

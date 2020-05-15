@@ -7,18 +7,18 @@ class row {
 
     public function create($data, $id){
         if ($id){
-            $row = "<tbody> <tr class = 'my-row' onclick='setSelect({$id})' data-id = '{$id}'>";
+            $row = "<tr class = 'my-row' onclick='setSelect({$id})' data-id = '{$id}'>";
             foreach ($data as $key => $value){
                 $row .= "<td data-id= '{$key}' > {$value}</td>";
             }
-            $row .= "</tr> </tbody>";
+            $row .= "</tr> ";
 
         }else{
-            $row = "<thead> <tr data-id = '{$id}'>";
+            $row = "<thead><tr data-id = '{$id}'>";
             foreach ($data as $key => $value){
                 $row .= "<th class='th-sm' data-id= '{$key}' > {$value}</th>";
             }
-            $row .= "</tr> </thead>";
+            $row .= "</tr></thead>";
         }
 
         return $row ;
