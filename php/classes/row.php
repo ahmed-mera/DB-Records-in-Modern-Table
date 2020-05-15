@@ -5,7 +5,7 @@ namespace table;
 
 class row {
 
-    public function create($id, $data){
+    public function create($data, $id){
         if ($id){
             $row = "<tbody> <tr class = 'my-row' onclick='setSelect({$id})' data-id = '{$id}'>";
             foreach ($data as $key => $value){

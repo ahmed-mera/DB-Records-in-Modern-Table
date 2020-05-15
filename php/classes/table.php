@@ -13,7 +13,7 @@ class table extends row implements crud
         $this->data = $data;
     }
 
-    public function create($id, $data){
+    public function create($data, $id){
         $table = '<table class="table table-striped table-bordered mt-5" cellspacing="0" width="100%">';
         if(!empty($id)){
             $showRow = $this->data[$id];
@@ -29,24 +29,24 @@ class table extends row implements crud
 
 
     public function read($id = null){
-        return self::create($id, $this->data);
+        return self::create( $this->data, $id);
     }
 
 
     public function delete($id){
         unset($this->data[$id]);
-        return $this->data;
+        return  self::create( $this->data, null);
     }
 
-    public function deleteCeil($ids, $data)
-    {
+    public function deleteCeil($ids, $data){
         $this->data[$ids['idRow']] = parent::deleteCeil($ids['idCeil'], $data);
-        return $this->data;
+        return  self::create( $this->data, null);
     }
 
     public function update($id, $data){
         $this->data[$id] = $data;
-        return $this->data;
+        return  self::create( $this->data, null);
+
     }
 
 }
